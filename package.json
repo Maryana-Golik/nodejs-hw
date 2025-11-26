@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-hw",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maryana-Golik/nodejs-hw.git"
+  },
+  "keywords": [],
+  "author": "Maryana Golik <golikmaryana307@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maryana-Golik/nodejs-hw/issues"
+  },
+  "homepage": "https://github.com/Maryana-Golik/nodejs-hw#readme",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "nodemon": "^3.1.11"
+  }
+}

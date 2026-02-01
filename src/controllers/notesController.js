@@ -5,17 +5,23 @@ export const getAllNotes = async (req, res) => {
   const { page = 1, perPage = 10, tag, search } = req.query;
   const skip = (page - 1) * perPage;
 
-  const notesQuery = Note.find().where("userId").equals(req.user._id);
-  const totalQuery = Note.countDocuments().where("userId").equals(req.user._id);
+  let notesQuery = Note.find()
+    .where("userId")
+    .equals(req.user._id);
+
+  let totalQuery = Note.countDocuments()
+    .where("userId")
+    .equals(req.user._id);
 
   if (tag) {
-    notesQuery.where("tag").equals(tag);
-    totalQuery.where("tag").equals(tag);
+    notesQuery = notesQuery.where("tag").equals(tag);
+    totalQuery = totalQuery.where("tag").equals(tag);
   }
 
   if (search) {
-    notesQuery.where({ $text: { $search: search } });
-    totalQuery.where({ $text: { $search: search } });
+    const regex = new RegExp(search, "i");
+    notesQuery = notesQuery.where("title").regex(regex);
+    totalQuery = totalQuery.where("title").regex(regex);
   }
 
   const [notes, total] = await Promise.all([
@@ -92,6 +98,7 @@ export const updateNote = async (req, res, next) => {
 
   res.status(200).json(note);
 };
+
 
 
 

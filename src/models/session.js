@@ -1,11 +1,11 @@
 import { model, Schema } from "mongoose";
-
+import { User } from "./user.js";
 
 
 const sessionSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId,
-    ref: 'User',
+    ref: User,
     required: true,
   },
   accessToken: {
@@ -31,4 +31,5 @@ const sessionSchema = new Schema({
 });
 
 export const Session = model('Session', sessionSchema);
+
 

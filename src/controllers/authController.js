@@ -128,9 +128,10 @@ export const requestResetEmail = async (req, res, next) => {
   const templateSource = await fs.readFile(templatePath, 'utf-8');
   const template = Handlebars.compile(templateSource);
 
+
 const html = template({
   name: user.name,
-  link: `${process.env.FRONTEND_DOMAIN}/reset-password?token=${resetToken}`,
+  link: `${process.env.FRONTEND_DOMAIN}/reset-password?token=${token}`,
 });
 
 

@@ -8,7 +8,7 @@
     "dev": "nodemon src/server.js"
   },
   "keywords": [],
-  "author": "Olena Gerich <gerichpingvin@gmail.com>",
+  "author": "Maryana Golik <golikmaryana307@gmail.com>",
   "license": "ISC",
   "description": "",
   "devDependencies": {
